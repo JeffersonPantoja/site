@@ -47,11 +47,18 @@ a:hover {
   width: 100vw;
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 
 .menu a {
   padding: 10px 20px;
   display: block;
+  transition: background-color .5s, color .5s;
+}
+
+.menu a:hover {
+  background-color: teal;
+  color: whitesmoke;
 }
 
 .menu ul {
@@ -62,6 +69,22 @@ a:hover {
 /* Seletor hierarquico */
 .menu li {
   list-style: none;
+}
+
+.titulo {
+  transform: scale(0.2) translateY(50vh);
+  opacity: 0;
+  animation: linear 2s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo {
+  0% {
+    
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 }
 
 .site-subtitle, .site-title {
@@ -78,18 +101,24 @@ a:hover {
   font-family: 'Press Start 2P', cursive;
 }
 
+.contato,
 .portfolio {
   padding: 2em;
-  height: calc(100vh - 2em);
+  min-height: calc(100vh - 2em);
 }
 
+.contato h2,
 .portfolio h2 {
   margin-bottom: 2em;
+  color: whitesmoke;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .portfolio .grid {
   display: grid;
   gap: 1em;
+  align-content: center;
+  justify-content: center;
 }
 
 @media (min-width: 560px) {
@@ -101,9 +130,6 @@ a:hover {
 @media (min-width: 880px) {
   .portfolio .grid {
     grid-template-columns: repeat(3, 240px);
-    align-content: center;
-    justify-content: center;
-    
   }
 }
 
@@ -117,4 +143,25 @@ a:hover {
   object-fit: cover;
   object-position: left bottom;
   border-radius: 3%;
+  transition: transform 500ms;
+}
+
+.img-portfolio:hover {
+  transform: scale(1.2);
+}
+
+.contato a {
+  color: whitesmoke;
+  font-size: 4em;
+  transition: text-shadow .5s;
+}
+
+.contato a:hover,
+.contato a:hover {
+  text-decoration: none;
+  text-shadow: 0px 0px 10px rgb( 255, 255, 255, .5);
+}
+
+.contato .icons {
+  text-align: center;
 }
